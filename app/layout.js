@@ -4,10 +4,10 @@ import "./globals.css";
 const fraunces = Fraunces({ variable: "--font-fraunces", subsets: ["latin"], weight: ["500", "600", "700"] });
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
 
-const __jsonld = {"@context":"https://schema.org","@type":"Restaurant","name":"Rasa Nusantara","description":"Kuliner tradisional sentuhan modern","url":"https://landing-rasanusantara.vercel.app","areaServed":"ID"};
+const __jsonld = {"@context":"https://schema.org","@type":"Restaurant","name":"Rasa Nusantara","description":"Kuliner tradisional sentuhan modern","url":"https://rasanusantara.pintuweb.com","areaServed":"ID"};
 
 export const metadata = {
-  metadataBase: new URL("https://landing-rasanusantara.vercel.app"),
+  metadataBase: new URL("https://rasanusantara.pintuweb.com"),
   title: "Rasa Nusantara — Kuliner Tradisional, Sentuhan Modern",
   description: "Rasa Nusantara: kelezatan kuliner tradisional Indonesia dengan sentuhan modern untuk pengalaman bersantap tak terlupakan.",
   applicationName: "Rasa Nusantara",
@@ -15,11 +15,11 @@ export const metadata = {
   authors: [{ name: "Rasa Nusantara" }],
   creator: "Rasa Nusantara",
   publisher: "Rasa Nusantara",
-  alternates: { canonical: "https://landing-rasanusantara.vercel.app" },
+  alternates: { canonical: "https://rasanusantara.pintuweb.com" },
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: "https://landing-rasanusantara.vercel.app",
+    url: "https://rasanusantara.pintuweb.com",
     siteName: "Rasa Nusantara",
     title: "Rasa Nusantara — Kuliner Tradisional, Sentuhan Modern",
     description: "Rasa Nusantara: kelezatan kuliner tradisional Indonesia dengan sentuhan modern untuk pengalaman bersantap tak terlupakan.",

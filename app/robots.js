@@ -1,7 +1,7 @@
 export default function robots() {
   return {
     rules: { userAgent: "*", allow: "/" },
-    sitemap: "https://landing-rasanusantara.vercel.app/sitemap.xml",
-    host: "https://landing-rasanusantara.vercel.app",
+    sitemap: "https://rasanusantara.pintuweb.com/sitemap.xml",
+    host: "https://rasanusantara.pintuweb.com",
   };
 }
