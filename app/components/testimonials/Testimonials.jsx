@@ -54,15 +54,15 @@ const staggerContainer = {
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="relative py-24 px-6 bg-white overflow-hidden">
+    <section id="testimonials" className="relative py-24 px-6 bg-rice overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-32 h-32 rounded-full bg-orange-50 blur-3xl opacity-40"></div>
-        <div className="absolute bottom-1/3 right-1/4 w-40 h-40 rounded-full bg-gray-100 blur-3xl opacity-30"></div>
+        <div className="absolute top-1/4 left-1/4 w-32 h-32 rounded-full bg-clay/12 blur-3xl opacity-40"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-40 h-40 rounded-full bg-rice blur-3xl opacity-30"></div>
         
         {/* Grid lines */}
-        <div className="absolute top-0 left-1/2 w-px h-full bg-gray-100"></div>
-        <div className="absolute top-1/3 left-0 w-full h-px bg-gray-100"></div>
+        <div className="absolute top-0 left-1/2 w-px h-full bg-rice"></div>
+        <div className="absolute top-1/3 left-0 w-full h-px bg-rice"></div>
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -74,13 +74,13 @@ export default function Testimonials() {
         >
           <motion.h2 
             variants={fadeIn}
-            className="text-3xl md:text-4xl font-bold mb-4 text-gray-900"
+            className="text-3xl md:text-4xl font-bold mb-4 text-bark"
           >
             Dipercaya oleh Pemimpin Industri Kuliner
           </motion.h2>
           <motion.p 
             variants={fadeIn}
-            className="text-lg text-gray-600 max-w-2xl mx-auto"
+            className="text-lg text-bark-soft max-w-2xl mx-auto"
           >
             Dengarkan apa kata para profesional dari perusahaan kuliner terkemuka tentang layanan kami
           </motion.p>
@@ -92,7 +92,7 @@ export default function Testimonials() {
               key={testimonial.id}
               variants={fadeIn}
               whileHover={{ y: -5 }}
-              className="bg-white p-8 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-all"
+              className="bg-rice p-8 rounded-xl shadow-sm border border-bark/12 hover:shadow-md transition-all"
             >
               <div className="flex items-start space-x-4 mb-6">
                 <img 
@@ -101,15 +101,15 @@ export default function Testimonials() {
                   className="w-14 h-14 rounded-full object-cover border-2 border-white shadow-md"
                 />
                 <div>
-                  <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
-                  <p className="text-sm text-gray-500">{testimonial.job}</p>
-                  <p className="text-xs text-orange-600 font-medium mt-1">{testimonial.company}</p>
+                  <h4 className="font-semibold text-bark">{testimonial.name}</h4>
+                  <p className="text-sm text-bark-soft">{testimonial.job}</p>
+                  <p className="text-xs text-clay font-medium mt-1">{testimonial.company}</p>
                 </div>
               </div>
               
-              <p className="text-gray-700 mb-6 italic relative pl-6">
+              <p className="text-bark mb-6 italic relative pl-6">
                 <svg 
-                  className="absolute left-0 top-0 w-5 h-5 text-gray-300" 
+                  className="absolute left-0 top-0 w-5 h-5 text-bark-soft" 
                   fill="currentColor" 
                   viewBox="0 0 20 20"
                 >
@@ -118,12 +118,12 @@ export default function Testimonials() {
                 {testimonial.text}
               </p>
               
-              <div className="flex items-center justify-between border-t border-gray-100 pt-4">
+              <div className="flex items-center justify-between border-t border-bark/12 pt-4">
                 <div className="flex">
                   {[...Array(5)].map((_, i) => (
                     <svg
                       key={i}
-                      className={`w-5 h-5 ${i < testimonial.rating ? 'text-yellow-400' : 'text-gray-300'}`}
+                      className={`w-5 h-5 ${i < testimonial.rating ? 'text-clay' : 'text-bark-soft'}`}
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -132,7 +132,7 @@ export default function Testimonials() {
                   ))}
                 </div>
                 <svg 
-                  className="w-6 h-6 text-gray-300" 
+                  className="w-6 h-6 text-bark-soft" 
                   fill="none" 
                   stroke="currentColor" 
                   viewBox="0 0 24 24"
@@ -148,7 +148,7 @@ export default function Testimonials() {
           variants={fadeIn}
           className="mt-16 text-center"
         >
-          <button className="inline-flex items-center px-6 py-3 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 transition-all">
+          <button className="inline-flex items-center px-6 py-3 border border-bark/12 shadow-sm text-base font-medium rounded-md text-bark bg-rice hover:bg-rice focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-clay transition-all">
             Lihat Lebih Banyak Testimoni
             <svg className="ml-3 -mr-1 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />

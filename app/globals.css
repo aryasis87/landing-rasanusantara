@@ -1,28 +1,42 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ==========================================================================
+   Rasa Nusantara — bahasa rupa KARTU RESEP.
+   Sengaja dijauhkan dari Citarasa yang setetangga isi: kalau Citarasa adalah
+   papan nama rumah makan, ini adalah kartu resep warisan — kertas beras,
+   garis tepi tipis, dan tulisan tangan yang rapi. Hangat, bukan lantang.
+   ========================================================================== */
+
+@theme {
+  --color-clay: #b4552d;        /* terakota */
+  --color-clay-2: #8d3f1f;
+  --color-indigo-batik: #2c3e63; /* indigo batik */
+  --color-rice: #fbf7ef;        /* kertas beras */
+  --color-rice-2: #efe6d6;
+  --color-bark: #3a2f26;        /* teks utama */
+  --color-bark-soft: #6a5b4d;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@layer base {
+  body { font-family: var(--font-inter), system-ui, sans-serif; background-color: var(--color-rice); color: var(--color-bark-soft); }
+  h1, h2, h3 { font-family: var(--font-fraunces), Georgia, serif; letter-spacing: -0.02em; }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Kartu resep: garis tepi tipis dan garis bantu horizontal samar */
+.recipe-card { border: 1px solid rgb(58 47 38 / 0.18); background-image: repeating-linear-gradient(to bottom, transparent 0 27px, rgb(58 47 38 / 0.05) 27px 28px); }
+
+.recipe-label { font-size: 0.6875rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-inter), system-ui, sans-serif;
+:where(a, button, input, textarea, select, summary):focus-visible {
+  outline: 2px solid var(--color-clay);
+  outline-offset: 3px;
 }
-
-h1, h2, h3 { font-family: var(--font-fraunces), Georgia, serif; letter-spacing: -0.01em; }

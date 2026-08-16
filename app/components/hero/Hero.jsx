@@ -54,7 +54,7 @@ export default function Hero() {
       type: 'diagonal',
       start: { x: '10%', y: '15%' },
       end: { x: '25%', y: '30%' },
-      color: 'bg-orange-200',
+      color: 'bg-clay/12',
       width: 'w-0.5',
       delay: 0.4
     },
@@ -62,7 +62,7 @@ export default function Hero() {
       type: 'diagonal',
       start: { x: '85%', y: '20%' },
       end: { x: '70%', y: '35%' },
-      color: 'bg-amber-200',
+      color: 'bg-clay/12',
       width: 'w-0.5',
       delay: 0.6
     },
@@ -73,7 +73,7 @@ export default function Hero() {
       position: { top: '70%', left: '15%' },
       rotation: 45,
       size: 'w-32 h-8',
-      color: 'border-rose-200',
+      color: 'border-clay/30',
       delay: 0.8
     },
     {
@@ -81,7 +81,7 @@ export default function Hero() {
       position: { bottom: '25%', right: '15%' },
       rotation: -30,
       size: 'w-40 h-10',
-      color: 'border-emerald-200',
+      color: 'border-clay/30',
       delay: 1.0
     },
     
@@ -94,18 +94,18 @@ export default function Hero() {
         { x: '30%', y: '80%' },
         { x: '35%', y: '75%' }
       ],
-      color: 'bg-gray-200',
+      color: 'bg-rice-2',
       width: 'w-0.5',
       delay: 1.2
     }
   ];
 
   return (
-    <section className="relative h-screen flex items-center justify-center bg-gray-50 overflow-hidden">
+    <section className="relative h-screen flex items-center justify-center bg-rice overflow-hidden">
       {/* Dynamic background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-orange-100 blur-3xl opacity-40"
+          className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-clay/12 blur-3xl opacity-40"
           animate={{
             y: [0, -20, 0],
           }}
@@ -135,8 +135,8 @@ export default function Hero() {
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           className="absolute top-20 left-10 w-28 md:w-40"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
         >
           <motion.div 
@@ -164,8 +164,8 @@ export default function Hero() {
 
         <motion.div
           className="absolute bottom-20 right-0 w-28 md:w-40"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.8 }}
         >
           <motion.div 
@@ -306,17 +306,17 @@ export default function Hero() {
 
       {/* Rating Badge */}
       <motion.div
-        className="absolute bottom-24 right-8 bg-white px-3 py-2 rounded-full shadow-sm flex items-center gap-1 border border-gray-200"
+        className="absolute bottom-24 right-8 bg-rice px-3 py-2 rounded-full shadow-sm flex items-center gap-1 border border-bark/12"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.8 }}
       >
         <div className="flex">
           {[...Array(5)].map((_, i) => (
-            <StarIcon key={i} className="w-4 h-4 text-amber-400 fill-current" />
+            <StarIcon key={i} className="w-4 h-4 text-clay fill-current" />
           ))}
         </div>
-        <span className="text-xs font-medium text-gray-700">4.9/5</span>
+        <span className="text-xs font-medium text-bark">4.9/5</span>
       </motion.div>
 
       {/* Main content */}
@@ -327,21 +327,20 @@ export default function Hero() {
         animate="visible"
       >
         <motion.div variants={itemVariants} className="mb-6">
-          <span className="inline-block px-4 py-2 text-lg font-medium tracking-wider text-orange-600 uppercase bg-orange-100 rounded-full">
+          <span className="inline-block px-4 py-2 text-lg font-medium tracking-wider text-clay uppercase bg-clay/12 rounded-full">
             Rasa Nusantara
           </span>
         </motion.div>
         
         <motion.h1
           variants={itemVariants}
-          className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-gray-900 mb-6"
+          className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-bark mb-6"
         >
-          Tingkatkan Perjalanan <span className="text-orange-600">Rasa</span> Anda
+          Tingkatkan Perjalanan <span className="text-clay">Rasa</span> Anda
         </motion.h1>
         
         <motion.p
-          variants={itemVariants}
-          className="text-lg sm:text-xl text-gray-700 max-w-2xl mx-auto mb-10"
+          className="mx-auto mb-10 max-w-2xl text-lg text-bark sm:text-xl"
         >
           Temukan kreasi kuliner terbaik yang dirancang untuk mengubah pengalaman bersantap Anda menjadi momen yang tak terlupakan.
         </motion.p>
@@ -351,7 +350,7 @@ export default function Hero() {
             onClick={handleGetStarted}
             whileHover={{ scale: 1.05, boxShadow: "0 4px 12px rgba(59, 130, 246, 0.3)" }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-3 bg-orange-600 text-white font-medium rounded-lg shadow-md hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 transition-all"
+            className="px-8 py-3 bg-clay text-rice font-medium rounded-lg shadow-md hover:bg-clay focus:outline-none focus:ring-2 focus:ring-clay focus:ring-offset-2 transition-all"
           >
             Mulai Sekarang
           </motion.button>
@@ -359,7 +358,7 @@ export default function Hero() {
             onClick={() => router.push("/contact")}
             whileHover={{ scale: 1.05, boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)" }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-3 bg-white text-gray-900 font-medium rounded-lg border border-gray-300 shadow-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 transition-all"
+            className="px-8 py-3 bg-rice text-bark font-medium rounded-lg border border-bark/12 shadow-md hover:bg-rice focus:outline-none focus:ring-2 focus:ring-clay focus:ring-offset-2 transition-all"
           >
             Menu Kami
           </motion.button>
@@ -371,7 +370,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 0 }}
         animate={{ opacity: 1, y: 10 }}
         transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-gray-500"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-bark-soft"
       >
         <svg
           className="w-5 h-5 animate-bounce"

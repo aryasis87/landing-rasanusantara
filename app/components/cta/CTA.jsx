@@ -24,10 +24,10 @@ export default function CTA() {
   };
 
   return (
-    <section className="relative py-28 px-6 bg-white overflow-hidden">
+    <section className="relative py-28 px-6 bg-rice overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-orange-50 to-white opacity-40"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-clay to-white opacity-40"></div>
         
         {/* Grid pattern */}
         <div className="absolute inset-0 opacity-10">
@@ -35,10 +35,10 @@ export default function CTA() {
         </div>
         
         {/* Corner accents */}
-        <div className="absolute top-8 left-8 w-16 h-px bg-gray-900"></div>
-        <div className="absolute top-8 left-8 h-16 w-px bg-gray-900"></div>
-        <div className="absolute bottom-8 right-8 w-16 h-px bg-gray-900"></div>
-        <div className="absolute bottom-8 right-8 h-16 w-px bg-gray-900"></div>
+        <div className="absolute top-8 left-8 w-16 h-px bg-bark"></div>
+        <div className="absolute top-8 left-8 h-16 w-px bg-bark"></div>
+        <div className="absolute bottom-8 right-8 w-16 h-px bg-bark"></div>
+        <div className="absolute bottom-8 right-8 h-16 w-px bg-bark"></div>
       </div>
 
       <motion.div
@@ -49,14 +49,14 @@ export default function CTA() {
       >
         <motion.h2 
           variants={fadeIn}
-          className="text-3xl md:text-4xl font-bold mb-6 text-gray-900"
+          className="text-3xl md:text-4xl font-bold mb-6 text-bark"
         >
           Siap Mengubah Dunia Kuliner Anda?
         </motion.h2>
         
         <motion.p 
           variants={fadeIn}
-          className="text-lg text-gray-600 mb-10 max-w-2xl mx-auto"
+          className="text-lg text-bark-soft mb-10 max-w-2xl mx-auto"
         >
           Atur konsultasi dengan ahli kuliner kami dan temukan bagaimana kami dapat membantu mewujudkan cita rasa impian Anda.
         </motion.p>
@@ -69,7 +69,7 @@ export default function CTA() {
               boxShadow: "0 4px 20px rgba(29, 78, 216, 0.2)"
             }}
             whileTap={{ scale: 0.98 }}
-            className="px-8 py-4 bg-orange-600 text-white font-medium rounded-lg shadow-sm hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 transition-all"
+            className="px-8 py-4 bg-clay text-rice font-medium rounded-lg shadow-sm hover:bg-clay focus:outline-none focus:ring-2 focus:ring-clay focus:ring-offset-2 transition-all"
           >
             Mulai Sekarang
           </motion.a>
@@ -81,7 +81,7 @@ export default function CTA() {
               boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)"
             }}
             whileTap={{ scale: 0.98 }}
-            className="px-8 py-4 bg-white text-gray-900 font-medium rounded-lg border border-gray-300 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 transition-all"
+            className="px-8 py-4 bg-rice text-bark font-medium rounded-lg border border-bark/12 shadow-sm hover:bg-rice focus:outline-none focus:ring-2 focus:ring-clay focus:ring-offset-2 transition-all"
           >
             Minta Demo
           </motion.a>
@@ -89,7 +89,7 @@ export default function CTA() {
         
         <motion.p 
           variants={fadeIn}
-          className="mt-8 text-sm text-gray-500"
+          className="mt-8 text-sm text-bark-soft"
         >
           Dipercaya oleh 500+ bisnis kuliner di seluruh dunia
         </motion.p>
