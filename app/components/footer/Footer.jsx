@@ -10,7 +10,7 @@ export default function Footer() {
       variants={fadeIn}
       className="bg-bark text-rice py-4"
     >
-      <div className="container text-rice/75 mx-auto px-6 text-sm md:text-base text-center">
+      <div className="container text-rice/90 mx-auto px-6 text-sm md:text-base text-center">
         <p>© {new Date().getFullYear()} Rasa Nusantara. All rights reserved.</p>
       </div>
     </motion.footer>
