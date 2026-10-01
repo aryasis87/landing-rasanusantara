@@ -1,6 +1,6 @@
-# Rasa Nusantara — Kuliner Tradisional, Sentuhan Modern
+# Rasa Nusantara — Kartu Resep Terstandar untuk Dapur Restoran
 
-Rasa Nusantara: kelezatan kuliner tradisional Indonesia dengan sentuhan modern untuk pengalaman bersantap tak terlupakan.
+Rasa Nusantara menulis ulang resep tradisional menjadi kartu resep terstandar untuk dapur restoran: gramasi, urutan kerja, titik kritis, dan HPP per porsi. Minta 3 kartu resep gratis.
 
 **Demo live:** https://landing-rasanusantara.vercel.app
 
@@ -14,14 +14,15 @@ Bahasa rupa **Kartu Resep**. Kalau Citarasa adalah papan nama rumah makan, Rasa 
 
 ## Halaman
 
-`/`
+- `/` — jasa kartu resep terstandar untuk dapur restoran, dengan anatomi kartu bernomor
+- `/kartu-resep` — empat contoh kartu resep: rendang, soto banjar, ayam betutu, coto makassar
+- `/kartu-resep/[slug]` — kartu lengkap dengan penskala porsi 1–200 dan HPP per porsi
 
 ## Teknologi
 
 - Next.js 15.5 (App Router) dan React 19
 - Tailwind CSS v4
 - JavaScript
-- Heroicons, Framer Motion
 - Font: Fraunces, Inter (next/font)
 - SEO: metadata per halaman, Open Graph, JSON-LD, sitemap.xml, dan robots.txt
 
