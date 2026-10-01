@@ -1,19 +1,19 @@
-// app/not-found.js
-import Link from 'next/link';
+import Link from "next/link";
+
+export const metadata = { title: "Kartu tidak ditemukan" };
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white text-gray-800 font-sans">
-      <div className="text-center max-w-lg px-6 py-12">
-        <h1 className="text-6xl font-extrabold mb-4 text-gray-900">404</h1>
-        <p className="text-lg mb-6 text-gray-600">Oops! The page you&apos;re looking for doesn&apos;t exist.</p>
-        <Link
-          href="/"
-          className="inline-block bg-gray-900 text-white py-3 px-8 rounded-md text-lg font-semibold hover:bg-gray-800 transition duration-300"
-        >
-          Go Back Home
-        </Link>
+    <main className="flex min-h-[80vh] items-center bg-rice-2 px-6 pt-20">
+      <div className="recipe-card mx-auto max-w-xl -rotate-1 bg-rice p-10 text-center">
+        <p className="recipe-label text-clay">404</p>
+        <h1 className="mt-3 text-4xl font-semibold text-bark">Kartu ini tidak ada di laci</h1>
+        <p className="mt-4 leading-relaxed">Halaman yang Anda cari tidak ditemukan. Mungkin alamatnya salah ketik.</p>
+        <div className="mt-7 flex flex-wrap justify-center gap-3">
+          <Link href="/" className="bg-clay px-6 py-3.5 font-semibold text-rice hover:bg-clay-2">Ke beranda</Link>
+          <Link href="/kartu-resep" className="border border-bark/30 px-6 py-3.5 font-semibold text-bark hover:border-bark">Semua kartu resep</Link>
+        </div>
       </div>
-    </div>
+    </main>
   );
 }

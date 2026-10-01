@@ -1,260 +1,83 @@
-"use client";
-import { useState } from "react";
-import { motion } from "framer-motion";
+'use client';
+
+import { useState } from 'react';
+import { RESEP } from '@/lib/resep';
+
+const DAPUR = ['Restoran', 'Katering', 'Kafe', 'Hotel', 'Dapur awan (cloud kitchen)'];
 
 export default function LeadForm() {
-  const [formData, setFormData] = useState({ 
-    name: "", 
-    email: "",
-    company: "" 
-  });
-  const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [errors, setErrors] = useState({});
+  const [pilih, setPilih] = useState(() => RESEP.slice(0, 3).map((r) => r.slug));
+  const [selesai, setSelesai] = useState(false);
 
-  const validate = () => {
-    let tempErrors = {};
-    if (!formData.name.trim()) tempErrors.name = "Nama wajib diisi";
-    if (!formData.email.trim()) {
-      tempErrors.email = "Email wajib diisi";
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      tempErrors.email = "Format email tidak valid";
-    }
-    if (!formData.company.trim()) tempErrors.company = "Nama restoran/perusahaan wajib diisi";
-    setErrors(tempErrors);
-    return Object.keys(tempErrors).length === 0;
-  };
+  const ubah = (slug) =>
+    setPilih((p) => (p.includes(slug) ? p.filter((x) => x !== slug) : p.length < 3 ? [...p, slug] : p));
 
-  const handleChange = (e) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-    setErrors((prev) => ({ ...prev, [e.target.name]: "" }));
-  };
-
-  const handleSubmit = async (e) => {
+  const kirim = (e) => {
     e.preventDefault();
-    if (!validate()) return;
-
-    setLoading(true);
-    try {
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      setMessage("Terima kasih! Ini halaman contoh, jadi data Anda tidak dikirim ke mana pun.");
-      setFormData({ name: "", email: "", company: "" });
-    } catch (error) {
-      setMessage("Terjadi kesalahan. Silakan coba lagi.");
-    } finally {
-      setLoading(false);
-    }
+    // Purwarupa desain: tidak ada data yang dikirim ke mana pun.
+    setSelesai(true);
   };
 
-  // Animation variants
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
-    }
-  };
-
-  const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3
-      }
-    }
-  };
-
-  // Floating shapes variants
-  const floatingShape = {
-    animate: {
-      y: [0, -10, 0],
-      transition: {
-        duration: 4 + Math.random() * 3,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }
-    }
-  };
+  const input = 'w-full border border-bark/20 bg-rice px-4 py-3 text-bark focus:border-clay focus:outline-none';
 
   return (
-    <section 
-      id="leadform" 
-      className="relative py-24 px-6 bg-rice text-bark overflow-hidden"
-    >
-      {/* Decorative UI Elements */}
-      
-      {/* Floating circles */}
-      <motion.div
-        className="absolute top-1/4 left-10 w-3 h-3 rounded-full bg-rice-2 opacity-40"
-        variants={floatingShape}
-        animate="animate"
-      />
-      <motion.div
-        className="absolute top-1/3 right-12 w-4 h-4 rounded-full bg-rice-2 opacity-40"
-        variants={floatingShape}
-        animate="animate"
-        custom={1}
-      />
-      <motion.div
-        className="absolute bottom-1/4 left-20 w-2 h-2 rounded-full bg-rice-2 opacity-40"
-        variants={floatingShape}
-        animate="animate"
-        custom={2}
-      />
+    <section id="minta" className="scroll-mt-16 bg-rice-2 px-6 py-20 md:py-28">
+      <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+        <div>
+          <p className="recipe-label mb-4 text-clay">Gratis</p>
+          <h2 className="text-[2rem] leading-[1.1] font-semibold text-bark md:text-[2.7rem]">Tiga kartu resep lengkap, dikirim ke surel dapur Anda</h2>
+          <p className="mt-5 leading-relaxed">Pilih tiga dari empat kartu. Lengkap dengan gramasi, urutan, titik kritis, dan HPP contoh — boleh langsung dipakai di dapur.</p>
+        </div>
 
-      {/* Subtle grid lines */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-px h-full bg-rice"></div>
-        <div className="absolute top-0 right-1/4 w-px h-full bg-rice"></div>
-        <div className="absolute top-1/3 left-0 w-full h-px bg-rice"></div>
-      </div>
-
-      {/* Corner accents */}
-      <div className="absolute top-8 left-8 w-16 h-px bg-bark"></div>
-      <div className="absolute top-8 left-8 h-16 w-px bg-bark"></div>
-      <div className="absolute bottom-8 right-8 w-16 h-px bg-bark"></div>
-      <div className="absolute bottom-8 right-8 h-16 w-px bg-bark"></div>
-
-      <div className="max-w-4xl mx-auto relative z-10">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={staggerContainer}
-          className="text-center mb-16"
-        >
-          <motion.h2 
-            variants={fadeIn}
-            className="text-3xl md:text-4xl font-bold mb-4"
-          >
-            Mari Ciptakan Hidangan Istimewa
-          </motion.h2>
-          <motion.p 
-            variants={fadeIn}
-            className="text-lg text-bark-soft max-w-2xl mx-auto"
-          >
-            Bergabunglah dengan jaringan mitra kuliner premium kami dan dapatkan resep rahasia langsung ke email Anda.
-          </motion.p>
-        </motion.div>
-
-        <motion.form 
-          onSubmit={handleSubmit} 
-          className="max-w-md mx-auto relative"
-          initial="hidden"
-          animate="visible"
-          variants={staggerContainer}
-        >
-          {/* Form field highlights */}
-          <div className="absolute -left-8 top-0 h-full w-px bg-rice-2 hidden md:block"></div>
-          <div className="absolute -right-8 top-0 h-full w-px bg-rice-2 hidden md:block"></div>
-
-          <motion.div variants={fadeIn} className="mb-6">
-            <label htmlFor="name" className="block text-sm font-medium text-bark mb-2">
-              Nama Lengkap
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Budi Santoso"
-              value={formData.name}
-              onChange={handleChange}
-              className={`w-full px-4 py-3 rounded border focus:ring-2 focus:outline-none transition-all ${
-                errors.name 
-                  ? "border-clay/30 focus:ring-clay" 
-                  : "border-bark/12 focus:border-clay/30 focus:ring-clay"
-              }`}
-            />
-            {errors.name && (
-              <p className="mt-2 text-sm text-clay">{errors.name}</p>
-            )}
-          </motion.div>
-
-          <motion.div variants={fadeIn} className="mb-6">
-            <label htmlFor="email" className="block text-sm font-medium text-bark mb-2">
-              Email Kerja
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="budi@restoran.com"
-              value={formData.email}
-              onChange={handleChange}
-              className={`w-full px-4 py-3 rounded border focus:ring-2 focus:outline-none transition-all ${
-                errors.email 
-                  ? "border-clay/30 focus:ring-clay" 
-                  : "border-bark/12 focus:border-clay/30 focus:ring-clay"
-              }`}
-            />
-            {errors.email && (
-              <p className="mt-2 text-sm text-clay">{errors.email}</p>
-            )}
-          </motion.div>
-
-          <motion.div variants={fadeIn} className="mb-8">
-            <label htmlFor="company" className="block text-sm font-medium text-bark mb-2">
-              Restoran/Perusahaan
-            </label>
-            <input
-              type="text"
-              id="company"
-              name="company"
-              placeholder="Nama Restoran"
-              value={formData.company}
-              onChange={handleChange}
-              className={`w-full px-4 py-3 rounded border focus:ring-2 focus:outline-none transition-all ${
-                errors.company 
-                  ? "border-clay/30 focus:ring-clay" 
-                  : "border-bark/12 focus:border-clay/30 focus:ring-clay"
-              }`}
-            />
-            {errors.company && (
-              <p className="mt-2 text-sm text-clay">{errors.company}</p>
-            )}
-          </motion.div>
-
-          <motion.button
-            variants={fadeIn}
-            type="submit"
-            disabled={loading}
-            className="w-full bg-bark text-rice py-4 rounded-lg font-medium hover:bg-bark transition-all flex justify-center items-center gap-2 relative overflow-hidden"
-          >
-            {loading ? (
-              <>
-                <svg className="animate-spin h-5 w-5 text-rice" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                Sedang Memproses...
-              </>
-            ) : (
-              <>
-                Mulai Sekarang
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-rice opacity-30"></span>
-              </>
-            )}
-          </motion.button>
-        </motion.form>
-
-        {message && (
-          <motion.p 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mt-8 text-center text-bark-soft"
-          >
-            {message}
-          </motion.p>
-        )}
-
-        <motion.p 
-          variants={fadeIn}
-          className="mt-12 text-center text-sm text-bark-soft"
-        >
-          Kami menghargai privasi Anda. Anda dapat berhenti berlangganan kapan saja.
-        </motion.p>
+        <div className="recipe-card bg-rice p-7 sm:p-9">
+          {selesai ? (
+            <div role="status" className="py-8">
+              <p className="recipe-label text-clay">Tercatat</p>
+              <p className="mt-4 font-[family-name:var(--font-fraunces)] text-3xl font-semibold text-bark">Terima kasih. Selamat memasak.</p>
+              <p className="mt-4 leading-relaxed">Ini purwarupa desain, jadi tidak ada data yang dikirim dan tidak ada surel yang akan datang. Kartu lengkapnya tetap bisa dibaca di halaman kartu resep.</p>
+              <button type="button" onClick={() => setSelesai(false)} className="recipe-label mt-6 border border-bark/30 px-4 py-3 text-bark hover:border-bark">Isi ulang</button>
+            </div>
+          ) : (
+            <form onSubmit={kirim} className="space-y-5">
+              <fieldset>
+                <legend className="recipe-label mb-3 text-bark">Kartu yang diminta ({pilih.length}/3)</legend>
+                <div className="grid gap-2 sm:grid-cols-2">
+                  {RESEP.map((r) => (
+                    <label key={r.slug} className={`flex cursor-pointer items-center gap-3 border px-4 py-3 ${pilih.includes(r.slug) ? 'border-clay bg-clay/8' : 'border-bark/20'}`}>
+                      <input type="checkbox" checked={pilih.includes(r.slug)} onChange={() => ubah(r.slug)} className="h-4 w-4 accent-[#9a4423]" />
+                      <span className="text-sm text-bark">{r.nama}</span>
+                    </label>
+                  ))}
+                </div>
+              </fieldset>
+              <div className="grid gap-5 sm:grid-cols-2">
+                <div>
+                  <label htmlFor="nama" className="recipe-label mb-2 block text-bark">Nama</label>
+                  <input id="nama" name="nama" required autoComplete="name" className={input} />
+                </div>
+                <div>
+                  <label htmlFor="surel" className="recipe-label mb-2 block text-bark">Surel dapur</label>
+                  <input id="surel" name="surel" type="email" required autoComplete="email" className={input} />
+                </div>
+                <div>
+                  <label htmlFor="usaha" className="recipe-label mb-2 block text-bark">Nama usaha</label>
+                  <input id="usaha" name="usaha" required autoComplete="organization" className={input} />
+                </div>
+                <div>
+                  <label htmlFor="dapur" className="recipe-label mb-2 block text-bark">Jenis dapur</label>
+                  <select id="dapur" name="dapur" required defaultValue="" className={input}>
+                    <option value="" disabled>Pilih jenis dapur</option>
+                    {DAPUR.map((d) => <option key={d}>{d}</option>)}
+                  </select>
+                </div>
+              </div>
+              <button type="submit" disabled={pilih.length === 0} className="w-full bg-clay py-4 font-semibold text-rice hover:bg-clay-2 disabled:opacity-60">
+                Kirim {pilih.length} kartu resep ke surel saya
+              </button>
+              <p className="text-xs leading-relaxed">Purwarupa desain — formulir ini tidak mengirim data ke mana pun.</p>
+            </form>
+          )}
+        </div>
       </div>
     </section>
   );
